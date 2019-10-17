@@ -113,10 +113,10 @@
 				$CommaCount = count(fgetcsv($this -> Handle, null, $Comma));
 				fseek($this -> Handle, $this -> BOMLength);
 
-				$Delimiter = $Semicolon;
-				if ($TabCount > $SemicolonCount || $CommaCount > $SemicolonCount)
+				$Delimiter = $Comma;
+				if ($TabCount > $CommaCount || $SemicolonCount > $CommaCount)
 				{
-					$Delimiter = $CommaCount > $TabCount ? $Comma : $Tab;
+					$Delimiter = $SemicolonCount > $TabCount ? $Semicolon : $Tab;
 				}
 
 				$this -> Options['Delimiter'] = $Delimiter;
